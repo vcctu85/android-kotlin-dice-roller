@@ -9,8 +9,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val DICE_SIDE_NUMBER = 6
-        const val DRAWABLE = "drawable"
-        const val DICE_NAME = "ic_dice"
+        const val DICE_RESOURCE_TYPE = "drawable"
+        const val ICON_PREFIX = "ic_dice"
     }
 
     private val random = Random()
@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         val randomInt = random.nextInt(DICE_SIDE_NUMBER) + 1
-        val imgName = DICE_NAME + "$randomInt"
+        val imgName = "$ICON_PREFIX$randomInt"
 
-        val identifier = resources.getIdentifier(imgName, DRAWABLE, packageName)
+        val identifier = resources.getIdentifier(imgName, DICE_RESOURCE_TYPE, packageName)
         imageView.setImageResource(identifier)
     }
 }
